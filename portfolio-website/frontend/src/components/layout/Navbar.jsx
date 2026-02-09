@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser, FiGrid } from 'react-icons/fi';
+import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,6 +67,25 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
+            
+            {/* Login/Admin Button */}
+            {isAuthenticated ? (
+              <Link
+                to="/admin"
+                className="btn btn-primary flex items-center gap-2"
+              >
+                <FiGrid size={18} />
+                Admin
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="btn btn-primary flex items-center gap-2"
+              >
+                <FiUser size={18} />
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,6 +123,27 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 ))}
+                
+                {/* Login/Admin Button */}
+                {isAuthenticated ? (
+                  <Link
+                    to="/admin"
+                    onClick={() => setIsOpen(false)}
+                    className="btn btn-primary flex items-center gap-2 justify-center mt-2"
+                  >
+                    <FiGrid size={18} />
+                    Admin Dashboard
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="btn btn-primary flex items-center gap-2 justify-center mt-2"
+                  >
+                    <FiUser size={18} />
+                    Login
+                  </Link>
+                )}
               </div>
             </motion.div>
           )}
