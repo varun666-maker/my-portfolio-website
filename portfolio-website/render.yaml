@@ -1,5 +1,4 @@
 services:
-  # Backend API
   - type: web
     name: portfolio-backend
     env: node
@@ -11,29 +10,15 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
+        value: "10000"
       - key: MONGODB_URI
-        sync: false
+        value: mongodb+srv://varun143877_db_user:XTdTflJpYSJhcYbw@cluster0.g8l8rq3.mongodb.net/portfolio?retryWrites=true&w=majority
       - key: JWT_SECRET
-        generateValue: true
+        value: a7f8d9e6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8
       - key: ADMIN_EMAIL
-        sync: false
+        value: admin@portfolio.com
       - key: ADMIN_PASSWORD
-        sync: false
+        value: Admin@123
+      - key: CORS_ORIGIN
+        value: "*"
     healthCheckPath: /api/health
-
-  # Frontend App
-  - type: web
-    name: portfolio-frontend
-    env: static
-    region: oregon
-    plan: free
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL
-        value: https://portfolio-backend.onrender.com/api

@@ -215,6 +215,11 @@ const Portfolio = () => {
   useEffect(() => {
     if (activeFilter === 'All') {
       setFilteredProjects(projects);
+    } else if (activeFilter === 'Web Development') {
+      // Show both Web Development and Full Stack projects
+      setFilteredProjects(projects.filter((project) => 
+        project.category === 'Web Development' || project.category === 'Full Stack'
+      ));
     } else {
       setFilteredProjects(projects.filter((project) => project.category === activeFilter));
     }

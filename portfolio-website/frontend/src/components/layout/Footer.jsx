@@ -73,12 +73,32 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="text-dark-300 hover:text-primary-400 transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    {link.path && (link.path.startsWith('mailto:') || link.path.startsWith('tel:') || link.path.startsWith('http')) ? (
+                      link.path.startsWith('http') ? (
+                        <a
+                          href={link.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-dark-300 hover:text-primary-400 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <a
+                          href={link.path}
+                          className="text-dark-300 hover:text-primary-400 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      )
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className="text-dark-300 hover:text-primary-400 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
