@@ -19,15 +19,21 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+// CORS configuration — must come BEFORE helmet
+const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
+const corsOptions = {
+  origin: corsOrigin === '*' ? true : corsOrigin.split(','),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
+
+// Handle preflight requests explicitly
+app.options('*', cors(corsOptions));
+
 // Security middleware
 app.use(helmet());
-
-// CORS configuration
-const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
-app.use(cors({
-  origin: corsOrigin === '*' ? true : corsOrigin.split(','),
-  credentials: true
-}));
 
 // Rate limiting
 const limiter = rateLimit({
