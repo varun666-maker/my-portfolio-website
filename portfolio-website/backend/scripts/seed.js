@@ -28,6 +28,17 @@ const adminData = {
 
 const projectsData = [
   {
+    title: 'Ai idea Evaluator',
+    category: 'Web Development',
+    description: 'An AI tool which evaluates your startup idea and tells how good your idea is with SWOT Analysis, Competitor Analysis and Market Analysis.',
+    imageUrl: 'https://baiinfo.in/wp-content/uploads/2024/01/Business-Idea-Evaluation.jpg',
+    liveLink: 'https://idea-forge-ai-virid.vercel.app/',
+    githubLink: 'https://github.com/varun666-maker/idea-forge',
+    technologies: ['React', 'OpenAI', 'Node.js', 'SWOT Analysis', 'Market Analysis', 'Tailwind CSS', 'Vite'],
+    featured: true,
+    order: 0
+  },
+  {
     title: 'Weed Detection',
     category: 'Full Stack',
     description: 'An AI-powered web application for detecting and classifying weeds in agricultural fields using machine learning and computer vision. Real-time detection with detailed analytics dashboard.',
