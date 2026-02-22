@@ -1,22 +1,13 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Full-stack portfolio website with React, Node.js, Express, and MongoDB",
+  "description": "Portfolio website - Backend on Render, Frontend on Netlify",
   "type": "module",
   "scripts": {
     "install-all": "npm install --prefix backend && npm install --prefix frontend",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
-    "build": "npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "NODE_ENV=production npm start --prefix backend",
     "seed": "npm run seed --prefix backend"
   },
-  "keywords": [
-    "portfolio",
-    "react",
-    "nodejs",
-    "express",
-    "mongodb"
-  ],
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {

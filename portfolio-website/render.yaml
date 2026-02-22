@@ -4,21 +4,22 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: "10000"
       - key: MONGODB_URI
-        value: mongodb+srv://varun143877_db_user:XTdTflJpYSJhcYbw@cluster0.g8l8rq3.mongodb.net/portfolio?retryWrites=true&w=majority
+        sync: false
       - key: JWT_SECRET
-        value: a7f8d9e6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8
+        sync: false
       - key: ADMIN_EMAIL
-        value: admin@portfolio.com
+        sync: false
       - key: ADMIN_PASSWORD
-        value: Admin@123
+        sync: false
       - key: CORS_ORIGIN
-        value: "*"
+        sync: false
     healthCheckPath: /api/health

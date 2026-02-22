@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://your-backend-url.herokuapp.com/api/:splat"
+  to = "https://my-portfolio-backend-1-plkv.onrender.com/api/:splat"
   status = 200
   force = true
 
