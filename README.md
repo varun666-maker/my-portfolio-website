@@ -76,6 +76,8 @@ A modern, responsive, and feature-rich portfolio website built with a React fron
 ## 🚢 Deployment
 
 For detailed deployment instructions on **Render (Backend)** and **Netlify (Frontend)**, please refer to the [DEPLOYMENT-GUIDE.md](file:///c:/Users/91903/Downloads/SQL/portfolio-website/DEPLOYMENT-GUIDE.md).
+You can also view
+https://myyyyyyportfolioooooo.netlify.app/
 
 ## 📄 License
 
